@@ -17,6 +17,9 @@ server.listen(process.env.PORT, () => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
+app.get("/",(req,res)=>{
+    res.redirect("/api/docs")
+})
 app.use("/api",mainrouter)
 app.use(notfound)
 app.use(findeerror)
